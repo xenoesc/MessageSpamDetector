@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 50px;
+}
+
+.severity-meter {
+  width: 150px;
+  height: 150px;
+  position: relative;
+}
+
+.circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+}
+
+.bar {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 75px;
+  transform: translateX(-50%);
+  background-color: #000;
+}
+
+.fill {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  border-radius: 0 50% 50% 0;
+  background-color: #4CAF50;
+  transform-origin: left center;
+  transform: rotate(-45deg) translateX(-50%);
+}
+
+.severity-meter p {
+  text-align: center;
+  margin: 0;
+  font-weight: bold;
+}

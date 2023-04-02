@@ -43,7 +43,8 @@ def upload_file():
 
 @app.route('/result/<filename>')
 def result(filename):
-    return render_template('display.html', filename=filename)
+    gauge_value = 0.75
+    return render_template('display.html', filename=filename, gauge_value=gauge_value)
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):

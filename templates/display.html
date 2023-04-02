@@ -9,6 +9,7 @@
 			display: flex;
 			align-items: center;
 			height: 100vh;
+			background-color: #f2f2f2;
 		}
 		.container {
 			display: flex;
@@ -16,6 +17,7 @@
 			justify-content: space-between;
 			width: 100vw;
 			padding: 0 50px;
+			background-color: #f2f2f2;
 		}
 
 		.image-container {
@@ -26,12 +28,14 @@
 			width: 1200px;
 			object-fit: contain;
 			object-position: center;
+			background-color: #f2f2f2;
 		}
 
 		.gauge-container {
 			margin: 50px;
 			flex: 1;
 			position: relative;
+			background-color: #f2f2f2;
 		}
 
 		.gauge {
@@ -40,6 +44,7 @@
 		  font-family: "Roboto", sans-serif;
 		  font-size: 32px;
 		  color: #004033;
+		  background-color: #f2f2f2;
 		}
 
 		.gauge__body {
@@ -51,6 +56,8 @@
 		  border-top-left-radius: 100% 200%;
 		  border-top-right-radius: 100% 200%;
 		  overflow: hidden;
+
+
 		}
 
 		.gauge__fill {
@@ -62,6 +69,7 @@
 		  background: linear-gradient(to bottom, #ffa500, #ff0000);
 		  transform-origin: center top;
 		  transform: rotate(0.25turn);
+
 
 		}
 
@@ -80,6 +88,7 @@
 		  justify-content: center;
 		  padding-bottom: 25%;
 		  box-sizing: border-box;
+		  background-color: #f2f2f2;
 		}
 
 		.gauge__text {
@@ -91,11 +100,29 @@
 			font-family: "Roboto", sans-serif;
 			color: #004033;
 			display: none;
+			background-color: #f2f2f2;
 		}
+		header {
+		  position: fixed;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  background-color: #fff;
+		  text-align: center;
+		  padding: 20px 0;
+		  z-index: 9999;
+		  font-family: Arial, sans-serif;
+		  font-size: 18px;
+		  background-color: #f2f2f2;
+		}
+
 
 	</style>
 </head>
 <body>
+	<header>
+	  <h1>Email Spam Detector</h1>
+	</header>
 	<div class="container">
 		<div class="image-container">
 			<img src="{{ url_for('uploaded_file', filename=filename) }}" alt="Bordered Image" style="width:100%;height:100%;">
@@ -115,6 +142,7 @@
 const gaugeElement = document.querySelector(".gauge");
 const gaugeTextElement = document.querySelector(".gauge-container .gauge__text");
 const colors = ['#009578', '#00a96f', '#00c366', '#92c800', '#f7a600', '#ff7f00', '#ff4d4d', '#d42727', '#b30909'];
+const gaugeValue = {{ gauge_value }};
 
 function setGaugeValue(gauge, value) {
   if (value < 0.00 || value > 1.00) {
@@ -122,7 +150,7 @@ function setGaugeValue(gauge, value) {
   }
 
   let current = 0;
-  const increment = value / 80; // Adjust the increment value to control the animation speed
+  const increment = value / 50; // Adjust the increment value to control the animation speed
 
   const interval = setInterval(() => {
     current += increment;
@@ -146,7 +174,7 @@ function setGaugeValue(gauge, value) {
   }, 20);
 }
 
-setGaugeValue(gaugeElement, 0.00);
+setGaugeValue(gaugeElement, gaugeValue);
 
 
 </script>

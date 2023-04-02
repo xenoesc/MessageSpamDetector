@@ -20,7 +20,7 @@ def get_ip_location(domain):
     returnList = [city,region,country]
     return returnList
 
-#textSelect = str((textRead('tests/testemail1.png', 'eng'))) #convert text to string by default
+#textSelect = str((textRead('tests/upload.png', 'eng'))) #convert text to string by default
 #emails = re.findall(r'[\w.+-]+@[\w-]+\.[\w.-]+', textSelect) #find all the email addresses in the string
 #print(emails)
 print(get_ip_location('gmail.com'))

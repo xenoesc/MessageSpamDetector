@@ -31,6 +31,7 @@
 		.gauge-container {
 			margin: 50px;
 			flex: 1;
+			position: relative;
 		}
 
 		.gauge {
@@ -74,7 +75,6 @@
 		  left: 50%;
 		  transform: translateX(-50%);
 
-		  /* Text */
 		  display: flex;
 		  align-items: center;
 		  justify-content: center;
@@ -82,12 +82,23 @@
 		  box-sizing: border-box;
 		}
 
+		.gauge__text {
+			position: absolute;
+			top: 50%;
+			right: 200px;
+			transform: translateX(75%) translateY(-40%);
+			font-size: 20px;
+			font-family: "Roboto", sans-serif;
+			color: #004033;
+			display: none;
+		}
+
 	</style>
 </head>
 <body>
 	<div class="container">
 		<div class="image-container">
-			<img src="path/to/your/image.jpg" alt="Bordered Image" style="width:100%;height:100%;">
+			<img src="{{ url_for('uploaded_file', filename=filename) }}" alt="Bordered Image" style="width:100%;height:100%;">
 		</div>
 		<div class="gauge-container">
 			<div class="gauge">
@@ -96,15 +107,17 @@
 					<div class="gauge__cover"></div>
 				</div>
 			</div>
+			<div class="gauge__text"></div>
 		</div>
 	</div>
 </body>
 <script>
 const gaugeElement = document.querySelector(".gauge");
+const gaugeTextElement = document.querySelector(".gauge-container .gauge__text");
 const colors = ['#009578', '#00a96f', '#00c366', '#92c800', '#f7a600', '#ff7f00', '#ff4d4d', '#d42727', '#b30909'];
 
 function setGaugeValue(gauge, value) {
-  if (value < 0 || value > 1) {
+  if (value < 0.00 || value > 1.00) {
     return;
   }
 
@@ -115,18 +128,25 @@ function setGaugeValue(gauge, value) {
     current += increment;
     if (current >= value) {
       clearInterval(interval);
+      gaugeTextElement.style.display = "block";
+      if (value <= 0.25) {
+        gaugeTextElement.innerText = "This screenshot presents a low likelihood of being illegitimate. However, this tool is not 100% accurate, so please use common sense when replying to emails and clicking links.";
+      } else if (value <= 0.75) {
+        gaugeTextElement.innerText = "This screenshot presents a reasonable likelihood of being illegitimate. Please be careful when replying or clicking links in this email, and check all senders are legitimate.";
+      } else {
+        gaugeTextElement.innerText = "This screenshot presents a high likelihood of being illegitimate. It is not recommended that you do not reply to this email or click any links contained in it.";
+      }
     }
 
     const colorIndex = Math.floor(current / (1 / colors.length));
     const color = colors[colorIndex];
     gauge.querySelector(".gauge__fill").style.background = color;
-    gauge.querySelector(".gauge__fill").style.transform = `rotate(${current / 2}turn)`;
-    gauge.querySelector(".gauge__cover").textContent = `${Math.round(current * 100)}%`;
+    gauge.querySelector(".gauge__fill").style.transform = `rotate(${current / 2.025}turn)`;
+    gauge.querySelector(".gauge__cover").textContent = `${Math.round(current * 99)}%`;
   }, 20);
 }
 
-setGaugeValue(gaugeElement, 0.8);
-
+setGaugeValue(gaugeElement, 0.00);
 
 
 </script>

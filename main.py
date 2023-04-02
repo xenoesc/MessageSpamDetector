@@ -22,7 +22,7 @@ sevTotalWord = 0 #the total possible severity points for calculating percentage 
 totalSeverity = 0
 
 #LOCATION OF TEXT FILE
-imagePath = 'tests/testemail1.png'
+imagePath = 'tests/upload.png'
 #LIST OF WORDS TO IGNORE
 ignorelist = ['www','http','https','http://','https://','com','co','uk']
 

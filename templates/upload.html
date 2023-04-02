@@ -32,6 +32,12 @@
 			100% { transform: rotate(360deg); }
 		}
 	</style>
+
+	<script>
+		setTimeout(function() {
+			window.location.href = "{{ url_for('result') }}";
+		}, 5000);
+	</script>
 </head>
 <body>
 	<h1>Analysing screenshot...</h1>

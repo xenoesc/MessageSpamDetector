@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 from werkzeug.utils import secure_filename
 import os
-import analysis
+from analysis import analyse
 
 app = Flask(__name__)
 
@@ -43,7 +43,7 @@ def upload_file():
 
 @app.route('/result/<filename>')
 def result(filename):
-    gauge_value = 0.75
+    gauge_value = 0
     return render_template('display.html', filename=filename, gauge_value=gauge_value)
 
 @app.route('/uploads/<filename>')

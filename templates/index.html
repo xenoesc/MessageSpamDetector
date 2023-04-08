@@ -2,15 +2,103 @@
 <html>
 <head>
     <title>Email Scam Detector</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #f2f2f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        form {
+            width: 50%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            font-family: Arial, sans-serif;
+            margin-bottom: 10px;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+
+        .loader-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .loader {
+            border: 10px solid #e9e9e9;
+            border-top: 10px solid #4CAF50;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            animation: spin 0.75s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
     <h1>Email Spam Detector</h1>
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload_file') }}">
         <label for="file"><b>Upload a screenshot for analysis</b></label>
         <input type="file" name="file" id="file" accept="image/*" onchange="checkFile()">
-        <input type="submit" id="Upload" disabled>
+        <input type="submit" id="Upload" disabled onclick="showLoading()">
     </form>
+
+    <div id="loading" style="display: none">
+        <div>
+            <h1>Analysing screenshot...</h1>
+            <br>
+        </div>
+        <div class="loader-container">
+            <div class="loader"></div>
+        </div>
+    </div>
 
     <script>
         function checkFile() {
@@ -31,6 +119,16 @@
                 uploadButton.disabled = true;
             }
         }
+
+        function showLoading() {
+            const title = document.querySelector('h1');
+            const form = document.querySelector('form');
+            const loadingDiv = document.getElementById('loading');
+            title.style.display = 'none';
+            form.style.display = 'none';
+            loadingDiv.style.display = 'flex';
+        }
     </script>
+
 </body>
 </html>

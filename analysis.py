@@ -26,6 +26,8 @@ def analyse(imagePath):
     sevScoreWord = 0  # the severity score
     sevTotalWord = 0  # the total possible severity points for calculating percentage (temp)
     totalSeverity = 0
+    spamScoreSentences = 0
+    spamTotalSentences = 0
 
     # LIST OF WORDS TO IGNORE
     ignorelist = ['www', 'http', 'https', 'http://', 'https://', 'com', 'co', 'uk']
@@ -40,27 +42,27 @@ def analyse(imagePath):
                #print(x, 'CORRECT') #print false for condition misspelled DEBUG
                sevTotalWord = sevTotalWord + 1
            elif(correction==None and (len(x) > 4)):
-               print(x, 'FLAGGED - Special Word') #if cannot find an alternative spelling then assume it is a company name/technical term etc
+               #print(x, 'FLAGGED - Special Word') #if cannot find an alternative spelling then assume it is a company name/technical term etc
                sevTotalWord = sevTotalWord + 1
            elif(x in ignorelist and (len(x) > 4)):
-               print(x, 'FLAGGED - Word in ignore list')
+               #print(x, 'FLAGGED - Word in ignore list')
                sevTotalWord = sevTotalWord + 1
            else:
                if((len(x) > 4)):
-                   print(x,'INCORRECT','=>', correction) #print true for condition misspelled
+                   #print(x,'INCORRECT','=>', correction) #print true for condition misspelled
                    sevScoreWord = sevScoreWord + wordSevMultiplier
                    sevTotalWord = sevTotalWord + 1
                else:
                    sevTotalWord = sevTotalWord + 1
 
-    print('#####################################')
+    #print('#####################################')
     for z in textList:
         z=[z]
         spamBool = spamDetect(z) #boolean 1 for scam or 0 for not
         if (spamBool == 1):
             spamScoreSentences = spamScoreSentences + 1
         spamTotalSentences = spamTotalSentences + 1
-        print(z, spamBool)
+        #print(z, spamBool)
 
     wordScore = (sevScoreWord/sevTotalWord)*100
     spamSentencePercentage = (spamScoreSentences / spamTotalSentences) * 100
@@ -72,6 +74,6 @@ def analyse(imagePath):
     #print('Wordscore:',wordScore_scaled)
     #print('Spam Score:',spamSentencePercentage)
     #print('Total Score:',spamTotal)
-    return(spamTotal)
+    return((spamTotal)/100)
 
 

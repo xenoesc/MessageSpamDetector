@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a0dc13f-40cc-4412-baa4-2053b86c19f2" name="Changes" comment="Upload" />
+    <list default="true" id="8a0dc13f-40cc-4412-baa4-2053b86c19f2" name="Changes" comment="Upload">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/display.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/display.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,9 +66,9 @@
       <recent name="C:\Users\tomsa\OneDrive\Documents\1. Computer Science\Programming Project\Program Workspace\templates\uploads" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tomsa\OneDrive\Documents\1. Computer Science\Programming Project\Program Workspace\static" />
       <recent name="C:\Users\tomsa\OneDrive\Documents\1. Computer Science\Programming Project\Program Workspace" />
       <recent name="C:\Users\tomsa\OneDrive\Documents\1. Computer Science\Programming Project\Program Workspace\templates" />
-      <recent name="C:\Users\tomsa\OneDrive\Documents\1. Computer Science\Programming Project\Program Workspace\static" />
     </key>
   </component>
   <component name="RunManager">
@@ -212,7 +215,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680969552809</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Upload">
+      <created>1680971166846</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1680971166846</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Upload">
+      <created>1680971217090</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1680971217090</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

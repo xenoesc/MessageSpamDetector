@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a0dc13f-40cc-4412-baa4-2053b86c19f2" name="Changes" comment="Upload">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/display.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/display.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/image_2023-04-08_173125512.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/testemail12334.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +66,7 @@
       <recent name="C:\Users\tomsa\OneDrive\Documents\1. Computer Science\Programming Project\Program Workspace\templates\uploads" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tomsa\OneDrive\Documents\1. Computer Science\Programming Project\Program Workspace\result\static" />
       <recent name="C:\Users\tomsa\OneDrive\Documents\1. Computer Science\Programming Project\Program Workspace\static" />
       <recent name="C:\Users\tomsa\OneDrive\Documents\1. Computer Science\Programming Project\Program Workspace" />
       <recent name="C:\Users\tomsa\OneDrive\Documents\1. Computer Science\Programming Project\Program Workspace\templates" />
@@ -229,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680971217090</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Upload">
+      <created>1680971505132</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1680971505132</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

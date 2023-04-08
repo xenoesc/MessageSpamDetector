@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 from werkzeug.utils import secure_filename
 import os
-from multiprocessing import Process
 from analysis import analyse
 
 app = Flask(__name__)
@@ -42,30 +41,12 @@ def upload_file():
             return redirect(url_for('result', filename=filename))
     return render_template('index.html')
 
-def analyse_and_set_gauge(filename):
-    # This function runs the analyse function and sets the gauge_value
-    filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-    global gauge_value
-
-    gauge_value = analyse(filepath)
-
 @app.route('/result/<filename>')
 def result(filename):
-    global gauge_value
-    gauge_value = None
-    # create a new process to run analyse_and_set_gauge
-    p = Process(target=analyse_and_set_gauge, args=(filename,))
-    p.start()
-    # display the upload.html template while analyse is running
-    return render_template('upload.html')
+    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    gauge_value = analyse(file_path) # Call external function
+    return render_template('display.html', filename=filename, gauge_value=gauge_value)
 
-@app.route('/display')
-def display():
-    global gauge_value
-    if gauge_value is None:
-        return redirect(url_for('upload_file'))
-    else:
-        return render_template('display.html', gauge_value=gauge_value)
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):

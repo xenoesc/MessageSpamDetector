@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Gauge and Bordered Image Example</title>
+	<title>Message Scam Detector</title>
 	<style>
 		body {
 			margin: 0;
@@ -21,8 +21,6 @@
 		}
 
 		.image-container {
-			border: 5px solid #009578;
-			border-radius: 10px;
 			flex: 2;
 			height: 600px;
 			width: 1200px;
@@ -115,13 +113,34 @@
 		  font-size: 18px;
 		  background-color: #f2f2f2;
 		}
+		.back-button {
+		  font-family: Arial, sans-serif;
+		  display: inline-block;
+		  background-color: #4CAF50;
+		  color: #fff;
+		  padding: 10px 20px;
+		  border-radius: 5px;
+		  text-decoration: none;
+		  position: fixed;
+		  bottom: 20px;
+		  left: 20px;
+
+		  z-index: 9999;
+		}
+
+		.back-button:hover {
+		  background-color: #3e8e41;
+		}
+
+
+
 
 
 	</style>
 </head>
 <body>
 	<header>
-	  <h1>Email Spam Detector</h1>
+	  <h1>Message Scam Detector</h1>
 	</header>
 	<div class="container">
 		<div class="image-container">
@@ -137,6 +156,7 @@
 			<div class="gauge__text"></div>
 		</div>
 	</div>
+	<a href="/" class="back-button">← Return to homepage</a>
 </body>
 <script>
 const gaugeElement = document.querySelector(".gauge");

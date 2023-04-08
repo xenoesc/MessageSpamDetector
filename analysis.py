@@ -87,10 +87,10 @@ def analyse(imagePath):
 
     #print(sevTotalWord) #totalwords
     #print(sevScoreWord) #total incorrect wprds
-    #print(wordScore) #percentage of incorrect words
+    print(wordScore) #percentage of incorrect words
 
 
-    print('Wordscore:',wordScore_scaled)
+
     print('Spam Score:',spamSentencePercentage)
     if(spamTotal >= 100):
         spamTotal = 100

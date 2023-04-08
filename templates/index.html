@@ -4,11 +4,6 @@
     <title>Email Scam Detector</title>
 
     <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
         body {
             background-color: #f2f2f2;
             display: flex;
@@ -60,14 +55,9 @@
             background-color: #3e8e41;
         }
 
-        .loader-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
 
-        .loader {
+
+        .spinner {
             border: 10px solid #e9e9e9;
             border-top: 10px solid #4CAF50;
             border-radius: 50%;
@@ -75,11 +65,29 @@
             height: 80px;
             animation: spin 0.75s linear infinite;
         }
-
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
         }
+        .analyzing-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -220%);
+            text-align: center;
+            z-index: 1001;
+        }
+        .loader-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 20%);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
     </style>
 </head>
 <body>
@@ -91,14 +99,15 @@
     </form>
 
     <div id="loading" style="display: none">
-        <div>
-            <h1>Analysing screenshot...</h1>
-            <br>
-        </div>
-        <div class="loader-container">
-            <div class="loader"></div>
-        </div>
+      <div>
+        <h1 class="analyzing-text">Analysing screenshot...</h1>
+        <br>
+      </div>
+      <div class="loader-container">
+        <div class="spinner"></div>
+      </div>
     </div>
+
 
     <script>
         function checkFile() {

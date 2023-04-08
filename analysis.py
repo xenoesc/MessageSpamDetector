@@ -18,7 +18,7 @@ spell = SpellChecker()
 def analyse(imagePath):
     # severity variables
     map_scaler = [0.00, 100.00, 0.00, 800.00]
-    wordSevMultiplier = 1.5  # how much to multiply the severity by if the raw is true
+    wordSevMultiplier = 2.12  # how much to multiply the severity by if the raw is true
     useMultiplier = False #whether or not to multiply the final score by the multiplier
 
     sevScoreWord = 0  # the severity score
@@ -26,15 +26,18 @@ def analyse(imagePath):
     totalSeverity = 0
     spamScoreSentences = 0
     spamTotalSentences = 0
+    spellingMultiplier = 2
 
     # LIST OF WORDS TO IGNORE
     ignorelist = ['www', 'http', 'https', 'http://', 'https://', 'com', 'co', 'uk']
     raw = textRead(imagePath, 'eng')  # get raw ocr
-
-    if(spamDetect(raw) == 1): #check if the entire message is spam
+    rawList = [raw]
+    if(spamDetect(rawList) == 1): #check if the entire message is spam
         useMultiplier=True
+        print("TRUE AND TRUER")
     else:
         useMultiplier = False
+        print("FALSE AND FALSER")
 
 
     rawString = " ".join(raw.split())
@@ -71,12 +74,14 @@ def analyse(imagePath):
 
 
     wordScore = (sevScoreWord/sevTotalWord)*100
+    wordScore = wordScore * spellingMultiplier
     spamSentencePercentage = (spamScoreSentences / spamTotalSentences) * 100
+
     if(useMultiplier == True):
         spamSentencePercentage = spamSentencePercentage * wordSevMultiplier
     if(spamSentencePercentage >= 100):
         spamSentencePercentage = 100
-
+    print(spamSentencePercentage)
     spamTotal = (wordScore + spamSentencePercentage)/2
 
 
@@ -85,11 +90,11 @@ def analyse(imagePath):
     #print(wordScore) #percentage of incorrect words
 
 
-
-
-    #print('Wordscore:',wordScore_scaled)
-    #print('Spam Score:',spamSentencePercentage)
-    #print('Total Score:',spamTotal)
+    print('Wordscore:',wordScore_scaled)
+    print('Spam Score:',spamSentencePercentage)
+    if(spamTotal >= 100):
+        spamTotal = 100
+    print('Total Score:',spamTotal)
     return((spamTotal)/100)
 
 

@@ -93,8 +93,8 @@
 <body>
     <h1>Message Scam Detector</h1>
     <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload_file') }}">
-        <label for="file"><b>Upload a screenshot for analysis</b></label>
-        <label for="file">(Please make sure all uploaded images are high quality and not blurry, so all text is clearly readable by the OCR)</label>
+        <label for="file"><b>Upload a message screenshot for analysis</b></label>
+        <label for="file">(Please make sure all uploaded images are high quality and not blurry, so all text is clearly readable)</label>
         <input type="file" name="file" id="file" accept="image/*" onchange="checkFile()">
         <input type="submit" id="Upload" disabled onclick="showLoading()">
     </form>

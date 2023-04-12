@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a0dc13f-40cc-4412-baa4-2053b86c19f2" name="Changes" comment="Upload">
-      <change afterPath="$PROJECT_DIR$/uploads/image_2023-04-08_173125512.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploads/testemail12334.jpg" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/testprojectfile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/highLevel.py" beforeDir="false" afterPath="$PROJECT_DIR$/highLevel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/image_2023-04-08_173125512.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +43,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2LEDdyIkpl29hQ3DV0MFV08jRQN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -237,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680971505132</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Upload">
+      <created>1680973759790</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1680973759790</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

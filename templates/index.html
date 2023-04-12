@@ -23,36 +23,7 @@
       </div>
     </div>
 
-
-    <script>
-        function checkFile() {
-            const fileInput = document.getElementById('file');
-            const uploadButton = document.getElementById('Upload');
-
-            if (fileInput.files.length > 0) {
-                const file = fileInput.files[0];
-                const fileType = file.type.split('/')[0];
-                if (fileType === 'image') {
-                    uploadButton.disabled = false;
-                } else {
-                    uploadButton.disabled = true;
-                    alert('Please select an image file for analysis.');
-                    location.reload();
-                }
-            } else {
-                uploadButton.disabled = true;
-            }
-        }
-
-        function showLoading() {
-            const title = document.querySelector('h1');
-            const form = document.querySelector('form');
-            const loadingDiv = document.getElementById('loading');
-            title.style.display = 'none';
-            form.style.display = 'none';
-            loadingDiv.style.display = 'flex';
-        }
-    </script>
+<script type="text/javascript" src="/static/indexjava.js"></script>
 
 </body>
 </html>

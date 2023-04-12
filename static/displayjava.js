@@ -1,30 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Message Scam Detector</title>
-	<link rel="stylesheet" type="text/css" href="/static/displaystyle.css">
-</head>
-<body>
-	<header>
-	  <h1>Message Scam Detector</h1>
-	</header>
-	<div class="container">
-		<div class="image-container">
-			<img src="{{ url_for('uploaded_file', filename=filename) }}" alt="Bordered Image" style="width:100%;height:100%;">
-		</div>
-		<div class="gauge-container">
-			<div class="gauge">
-				<div class="gauge__body">
-					<div class="gauge__fill"></div>
-					<div class="gauge__cover"></div>
-				</div>
-			</div>
-			<div class="gauge__text"></div>
-		</div>
-	</div>
-	<a href="/" class="back-button">← Return to homepage</a>
-</body>
-<script>
 // Get the HTML elements for the gauge and gauge text
 const gaugeElement = document.querySelector(".gauge");
 const gaugeTextElement = document.querySelector(".gauge-container .gauge__text");
@@ -77,6 +50,3 @@ function setGaugeValue(gauge, value) {
 
 // Call the setGaugeValue function with the gauge element and gauge value
 setGaugeValue(gaugeElement, gaugeValue);
-
-</script>
-</html>

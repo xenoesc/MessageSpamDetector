@@ -49,8 +49,6 @@ body {
   border-top-left-radius: 100% 200%;
   border-top-right-radius: 100% 200%;
   overflow: hidden;
-
-
 }
 
 .gauge__fill {
@@ -62,8 +60,6 @@ body {
   background: linear-gradient(to bottom, #ffa500, #ff0000);
   transform-origin: center top;
   transform: rotate(0.25turn);
-
-
 }
 
 .gauge__cover {
@@ -75,7 +71,6 @@ body {
   top: 25%;
   left: 50%;
   transform: translateX(-50%);
-
   display: flex;
   align-items: center;
   justify-content: center;

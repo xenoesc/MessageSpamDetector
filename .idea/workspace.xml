@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a0dc13f-40cc-4412-baa4-2053b86c19f2" name="Changes" comment="Upload">
-      <change afterPath="$PROJECT_DIR$/static/displayjava.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/indexjava.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/temphtml.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/testemail12334.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/displaystyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/displaystyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/indexstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/indexstyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/display.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/display.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/indexjava.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/indexjava.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/testemail12334.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681292853571</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Upload">
+      <created>1681328806851</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1681328806851</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

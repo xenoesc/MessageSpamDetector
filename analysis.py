@@ -63,24 +63,29 @@ def analyse(imagePath):
 
     wordScore = (sevScoreWord / sevTotalWord) * 100
     spamSentencePercentage = (spamScoreSentences / spamTotalSentences) * 100
+    print(wordScore)  # percentage of incorrect words
+    print(spamSentencePercentage)
 
     if useMultiplier:  # if the entire message is flagged as spam, increase the score by the sev multiplier
         spamSentencePercentage = spamSentencePercentage * wordSevMultiplier
 
     if wordScore >= wordScoreThreshold:
-        spamSentencePercentage = spamSentencePercentage * spellingMultiplier  # if the misspelled words is over the
+        spamSentencePercentage = spamSentencePercentage + 1
+        spamSentencePercentage = wordScore * spellingMultiplier  # if the misspelled words is over the
         # threshold,multiply the spamscore by the spellingmultiplier
-    elif wordScore <= wordScoreThreshold:
+    if wordScore <= wordScoreThreshold:
         spamSentencePercentage = spamSentencePercentage + (
                 wordScore * 2)  # otherwise just add the misspelled percentage to the total (multiplied by two to
         # make it seem significant)
 
-    elif spamSentencePercentage >= 100:  # if the percentage is over 100 due to maths, set it to 100%
+    if spamSentencePercentage >= 100:  # if the percentage is over 100 due to maths, set it to 100%
         spamSentencePercentage = 100
 
     print(sevTotalWord)  # totalwords
     print(sevScoreWord)  # total incorrect words
-    print(wordScore)  # percentage of incorrect words
+
 
     print('Spam Score:', spamSentencePercentage)
     return spamSentencePercentage / 100  # return in decimal form for the javascript
+
+analyse('tests/screenshot.png')

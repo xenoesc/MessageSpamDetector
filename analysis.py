@@ -87,5 +87,3 @@ def analyse(imagePath):
 
     print('Spam Score:', spamSentencePercentage)
     return spamSentencePercentage / 100  # return in decimal form for the javascript
-
-analyse('tests/screenshot.png')

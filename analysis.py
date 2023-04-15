@@ -66,7 +66,7 @@ def analyse(imagePath):
         wordPercentage = (badWords / totalWords) * 100
         sentencePercentage = (spamSentences / totalSentences) * 100
     else:
-        return 0
+        return 42
 
     print("Word Percentage: ", wordPercentage)
     print("Sentence Percentage: ", sentencePercentage)

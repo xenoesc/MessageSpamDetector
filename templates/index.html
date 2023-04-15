@@ -4,7 +4,15 @@
     <title>Message Scam Detector</title>
     <link rel="stylesheet" type="text/css" href="/static/indexstyle.css">
 </head>
-<body>
+<body onload="flashMessage()">
+  <script>
+    function flashMessage() {
+      if ("{{ flash_message }}" == "True") {
+        alert("No text could be detected in this image, check that you chose the correct image, and the image is not blurry!");
+        document.location.href="/";
+      }
+    }
+  </script>
     <h1>Message Scam Detector</h1>
     <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload_file') }}">
         <label for="file"><b>Upload a message screenshot for analysis</b></label>

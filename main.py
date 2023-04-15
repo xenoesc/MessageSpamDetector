@@ -1,11 +1,13 @@
 # Import necessary libraries
-from flask import Flask, render_template, request, redirect, url_for, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory, flash
 from werkzeug.utils import secure_filename
 import os
 from analysis import analyse
 
 # Create a Flask instance
 app = Flask(__name__)
+#define secret key for flashing messages
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 # Define upload folder and allowed file extensions
 UPLOAD_FOLDER = 'uploads'
@@ -53,7 +55,10 @@ def upload_file():
 def result(filename):
     file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
     gauge_value = analyse(file_path) # Call external function
-    return render_template('display.html', filename=filename, gauge_value=gauge_value)
+    if gauge_value==42:
+        return render_template('index.html', flash_message="True")
+    else:
+        return render_template('display.html', filename=filename, gauge_value=gauge_value)
 
 # Define a route for serving uploaded files
 @app.route('/uploads/<filename>')

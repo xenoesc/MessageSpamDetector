@@ -15,5 +15,8 @@ The code requires the following python libraries to be installed:
 - scikit-learn
 - pytesseract
 	
-Once these have been installed, the setup.py file must been once first to ensure nltk downloads the required prerequisites.
+Once these have been installed, the setup.py file must be run once first to ensure nltk downloads the required prerequisites.
 You will also be required to install tesseract on your system.
+
+I also have the following YouTube videos which show the code in action!
+This is a link to the playlist containing all the videos [here!](https://www.youtube.com/playlist?list=PL0KPde5wJ8v6DakZMgPZLosuKR8KZyhBv)

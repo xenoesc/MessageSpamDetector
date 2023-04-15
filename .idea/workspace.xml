@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a0dc13f-40cc-4412-baa4-2053b86c19f2" name="Changes" comment="Upload">
-      <change afterPath="$PROJECT_DIR$/Test Screenshots/Hams (not scams)/Automated Shopping Offer Text.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test Screenshots/Hams (not scams)/Email from a Social Media Writer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test Screenshots/Hams (not scams)/Frances voicemail callback text.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test Screenshots/Hams (not scams)/New Tire Text Message.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test Screenshots/Hams (not scams)/Recipe for green beans.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test Screenshots/Hams (not scams)/Webinar Invitation Email.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test Screenshots/Scams/Amazon Email Scam.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test Screenshots/Scams/Apple Account Scam.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test Screenshots/Scams/HMRC Scam.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test Screenshots/Scams/Obvious Email Scam.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test Screenshots/Scams/PayPal Scam.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test Screenshots/Scams/Suspicious Voting Text Message.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/Webinar_Invitation_Email.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -287,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681503476479</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Upload">
+      <created>1681504283182</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1681504283182</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

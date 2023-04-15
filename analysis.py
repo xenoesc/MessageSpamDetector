@@ -10,15 +10,17 @@ spell = SpellChecker()
 
 def analyse(imagePath):
     # severity variables
-    wordSevMultiplier = 2.12  # how much to multiply the severity by if the raw is true
-    useMultiplier = False  # whether to multiply the final score by the multiplier
+    allSpam = False  # whether the entire message is spam, aside from the individual sentences
+    badWords = 0  # the number of misspelled words
+    totalWords = 0  # the total words
+    spamSentences = 0  # the number of sentences flagged as spam.
+    totalSentences = 0  # the total number of sentences
+    wordScoreThreshold = 5  # percentage of misspelled words in order to be significant
+    badWordMultiplier = 1.12
 
-    sevScoreWord = 0  # the severity score
-    sevTotalWord = 0  # the total possible severity points for calculating percentage (temp)
-    spamScoreSentences = 0
-    spamTotalSentences = 0
-    spellingMultiplier = 1.25
-    wordScoreThreshold = 6  # percentage of misspelled words in order to trigger the spelling multiplier
+    wordPercentage = 0
+    sentencePercentage = 0
+    spamTotal = 0
 
     # LIST OF WORDS TO IGNORE
     ignorelist = ['www', 'http', 'https', 'http://', 'https://', 'com', 'co', 'uk']
@@ -26,10 +28,8 @@ def analyse(imagePath):
     rawList = [raw]
     if spamDetect(rawList) == 1:  # check if the entire message is spam
         useMultiplier = True
-        print("TRUE AND TRUER")
     else:
         useMultiplier = False
-        print("FALSE AND FALSER")
 
     rawString = " ".join(raw.split())
     textList = tokenize.sent_tokenize(rawString)  # split text into sentences which can be analysed.
@@ -38,52 +38,68 @@ def analyse(imagePath):
         for x in split:
             correction = spell.correction(x)  # check word for spelling
             if x == correction and (4 < len(x)):  # if the correction is the same as the word (correctly spelled)
-                sevTotalWord = sevTotalWord + 1
+                totalWords = totalWords + 1
             elif correction is None and (len(x) > 4):
                 # if cannot find an alternative spelling then assume it is a company name/technical term etc
-                sevTotalWord = sevTotalWord + 1
+                totalWords = totalWords + 1
             elif x in ignorelist and (len(x) > 4):
                 # print(x, 'FLAGGED - Word in ignore list')
-                sevTotalWord = sevTotalWord + 1
+                totalWords = totalWords + 1
             else:
                 if len(x) > 4:
                     # print true for condition misspelled
-                    sevScoreWord = sevScoreWord + wordSevMultiplier
-                    sevTotalWord = sevTotalWord + 1
+                    badWords = badWords + 1  # increase the bad words
+                    totalWords = totalWords + 1
                 else:
-                    sevTotalWord = sevTotalWord + 1
+                    totalWords = totalWords + 1
 
     for z in textList:
         z = [z]
         spamBool = spamDetect(z)  # boolean 1 for scam or 0 for not
         if spamBool == 1:
-            spamScoreSentences = spamScoreSentences + 1
-        spamTotalSentences = spamTotalSentences + 1
+            spamSentences = spamSentences + 1
+
+        totalSentences = totalSentences + 1
         print(z, spamBool)
 
-    wordScore = (sevScoreWord / sevTotalWord) * 100
-    spamSentencePercentage = (spamScoreSentences / spamTotalSentences) * 100
-    print(wordScore)  # percentage of incorrect words
-    print(spamSentencePercentage)
+    if totalWords!=0 and totalSentences!=0:
+        wordPercentage = (badWords / totalWords) * 100
+        sentencePercentage = (spamSentences / totalSentences) * 100
+    else:
+        return 0
 
-    if useMultiplier:  # if the entire message is flagged as spam, increase the score by the sev multiplier
-        spamSentencePercentage = spamSentencePercentage * wordSevMultiplier
+    print("Word Percentage: ", wordPercentage)
+    print("Sentence Percentage: ", sentencePercentage)
 
-    if wordScore >= wordScoreThreshold:
-        spamSentencePercentage = spamSentencePercentage + 1
-        spamSentencePercentage = wordScore * spellingMultiplier  # if the misspelled words is over the
-        # threshold,multiply the spamscore by the spellingmultiplier
-    if wordScore <= wordScoreThreshold:
-        spamSentencePercentage = spamSentencePercentage + (
-                wordScore * 2)  # otherwise just add the misspelled percentage to the total (multiplied by two to
-        # make it seem significant)
+    spamTotal = sentencePercentage
 
-    if spamSentencePercentage >= 100:  # if the percentage is over 100 due to maths, set it to 100%
-        spamSentencePercentage = 100
+    if sentencePercentage >= 100:  # if all the sentences trigger spam, then check for spelling
+        if wordPercentage <= wordScoreThreshold:
+            spamTotal = spamTotal - wordPercentage
+        else:
+            round(spamTotal) # round the total to make sure the percentage is accurate
 
-    print(sevTotalWord)  # totalwords
-    print(sevScoreWord)  # total incorrect words
+            spamTotal = spamTotal / 100  # convert to decimal
+            print("SpamTotal1: ", spamTotal)
+            return spamTotal
 
+    else:
+        if useMultiplier:
+            if sentencePercentage <= 50:
+                spamTotal = spamTotal + 25  # if the sentence percentage is low and useMultiplier is true, then increase the total score by more
+            else:
+                spamTotal = spamTotal + 10
 
-    print('Spam Score:', spamSentencePercentage)
-    return spamSentencePercentage / 100  # return in decimal form for the javascript
+        if spamTotal >= 100: # check if the score is above 100, if so, then set it to 100 as the webpage needs values to be within the range of 100.
+            spamTotal = 100
+
+        if wordPercentage >= wordScoreThreshold:
+            spamTotal = spamTotal * badWordMultiplier  # if there is a significant amount of misspelled words, multiply the total score by the multiplier
+        else:
+            spamTotal = spamTotal - wordPercentage
+
+        round(spamTotal) # round the total to make sure the percentage is accurate
+
+        spamTotal = spamTotal / 100  # convert to decimal
+        print("SpamTotal2: ", spamTotal)
+        return spamTotal

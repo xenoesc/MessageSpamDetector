@@ -57,7 +57,7 @@ function setGaugeValue(gauge, value) {
         gaugeTextElement.innerText = "This screenshot presents a low likelihood of being illegitimate. However, this tool is not 100% accurate, so please use common sense when replying to emails and clicking links.";
       } else if (value <= 0.55) {
         gaugeTextElement.innerText = "This screenshot presents a reasonable likelihood of being illegitimate. Please be careful when replying or clicking links in this email, and check all senders are legitimate.";
-      } else if (value <= 0.70 {
+      } else if (value <= 0.70) {
         gaugeTextElement.innerText = "This screenshot presents a high likelihood of being illegitimate. It is not recommended that you do not reply to this email or click any links contained in it.";
       } else {
         gaugeTextElement.innerText = "This screenshot presents a very high likelihood of being illegitimate. It is not recommended that you do not reply to this email or click any links contained in it.";

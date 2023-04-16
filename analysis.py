@@ -77,7 +77,7 @@ def analyse(imagePath):
         if wordPercentage <= wordScoreThreshold:
             spamTotal = spamTotal - wordPercentage
         else:
-            round(spamTotal) # round the total to make sure the percentage is accurate
+            spamTotal = round(spamTotal) # round the total to make sure the percentage is accurate
 
             spamTotal = spamTotal / 100  # convert to decimal
             print("SpamTotal1: ", spamTotal)
@@ -101,7 +101,7 @@ def analyse(imagePath):
         if spamTotal <= 0: # check for negative values
             spamTotal = 0
 
-        round(spamTotal) # round the total to make sure the percentage is accurate
+        spamTotal = round(spamTotal) # round the total to make sure the percentage is accurate
         spamTotal = spamTotal / 100  # convert to decimal
         print("SpamTotal2: ", spamTotal)
         return spamTotal
